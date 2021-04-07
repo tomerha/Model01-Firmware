@@ -17,8 +17,8 @@
 #include "Kaleidoscope.h"
 
 // Support for storing the keymap in EEPROM
-#include "Kaleidoscope-EEPROM-Settings.h"
-#include "Kaleidoscope-EEPROM-Keymap.h"
+//#include "Kaleidoscope-EEPROM-Settings.h"
+//#include "Kaleidoscope-EEPROM-Keymap.h"
 
 // Support for communicating with the host via a simple Serial protocol
 #include "Kaleidoscope-FocusSerial.h"
@@ -33,7 +33,7 @@
 #include "Kaleidoscope-LEDControl.h"
 
 // Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
-//#include "Kaleidoscope-NumPad.h"
+#include "Kaleidoscope-NumPad.h"
 
 // Support for the "Boot greeting" effect, which pulses the 'LED' button for 10s
 // when the keyboard is connected to a computer (or that computer is powered on)
@@ -397,21 +397,21 @@ USE_MAGIC_COMBOS({.action = toggleKeyboardProtocol,
 KALEIDOSCOPE_INIT_PLUGINS(
   // The EEPROMSettings & EEPROMKeymap plugins make it possible to have an
   // editable keymap in EEPROM.
-  EEPROMSettings,
-  EEPROMKeymap,
+  //EEPROMSettings,
+  //EEPROMKeymap,
 
   // Focus allows bi-directional communication with the host, and is the
   // interface through which the keymap in EEPROM can be edited.
-  Focus,
+  //Focus,
 
   // FocusSettingsCommand adds a few Focus commands, intended to aid in
   // changing some settings of the keyboard, such as the default layer (via the
   // `settings.defaultLayer` command)
-  FocusSettingsCommand,
+  //FocusSettingsCommand,
 
   // FocusEEPROMCommand adds a set of Focus commands, which are very helpful in
   // both debugging, and in backing up one's EEPROM contents.
-  FocusEEPROMCommand,
+  //FocusEEPROMCommand,
 
   // The boot greeting effect pulses the LED button for 10 seconds after the
   // keyboard is first connected
@@ -525,7 +525,7 @@ void setup() {
   // one wants to use these layers, just set the default layer to one in EEPROM,
   // by using the `settings.defaultLayer` Focus command, or by using the
   // `keymap.onlyCustom` command to use EEPROM layers only.
-  EEPROMKeymap.setup(5);
+  //EEPROMKeymap.setup(5);
 
   // We need to tell the Colormap plugin how many layers we want to have custom
   // maps for. To make things simple, we set it to five layers, which is how
